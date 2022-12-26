@@ -13,7 +13,7 @@ function UserResults() {
             
         fetchUsers()
 
-    },  )
+    }, [fetchUsers] )
 
    
     if(!loading) { //if not loading then return users login
