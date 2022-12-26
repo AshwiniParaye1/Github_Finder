@@ -1,5 +1,5 @@
 import React from 'react'
-import { useEffect, useContext } from 'react';
+import { useContext } from 'react';
 import Spinner from '../layouts/Spinner';
 import UserItem from   '../users/UserItem';
 import GithubContext from '../../context/github/GithubContext';
@@ -7,14 +7,9 @@ import GithubContext from '../../context/github/GithubContext';
 
 function UserResults() {
 
-    const {users, loading, fetchUsers} = useContext(GithubContext)
+    const {users, loading } = useContext(GithubContext)
 
-    useEffect(() => {
-            
-        fetchUsers()
-
-    }, [fetchUsers] )
-
+    
    
     if(!loading) { //if not loading then return users login
 
