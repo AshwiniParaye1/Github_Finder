@@ -1,7 +1,7 @@
 import { createContext, useState } from "react";
 
 
-const GithubCintext = createContext()
+const GithubContext = createContext()
 
 
 const GITHUB_URL = process.env.REACT_APP_GITHUB_URL
@@ -28,4 +28,18 @@ export const GithubProvider = ({children}) => {
         //after fetching the users data loading will be false
         
     }
+
+    return <GithubContext.Provider value={{
+        users,
+        loading,
+        fetchUsers,
+        
+    }}>
+        
+        {children}
+        
+    </GithubContext.Provider>
 }
+
+
+export default GithubContext;
