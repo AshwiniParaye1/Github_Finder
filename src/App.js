@@ -7,6 +7,7 @@ import NotFound from "./pages/NotFound";
 import { GithubProvider } from "./context/github/GithubContext";
 import { AlertProvider } from "./context/alert/AlertContext";
 import Alert from "./components/layouts/Alert";
+import User from "./pages/User";
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
 
             <Route path='/' element={<Home />} />
             <Route path='/about' element={<About />} />
+            <Route path='/user/:login' element={<User />} />
             <Route path='/notfound' element={<NotFound />} />
             <Route path='/*' element={<NotFound />} />
             
