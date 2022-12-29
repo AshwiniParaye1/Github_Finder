@@ -1,21 +1,24 @@
 import React from 'react';
 import { useEffect, useContext } from 'react';
-import GithunContext from '../context/github/GithubContext';
+import GithubContext from '../context/github/GithubContext';
 import { useParams } from 'react-router-dom';
-import { FaBlogger, FaCodepen, FaStore, FaUserFriends, FaUsers } from 'react-icons/fa';
+import { FaCodepen, FaStore, FaUserFriends, FaUsers } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import Spinner from '../components/layouts/Spinner';
+import RepoList from '../components/repos/RepoList'
+
 
 
 function User() {
 
-    const {getUser, user, loading, getUserRepos, repos} = useContext(GithunContext)
+    const {getUser, user, loading, getUserRepos, repos} = useContext(GithubContext)
 
     const params = useParams()
 
     useEffect(() => {
         getUser(params.login)
-        // getUserRepos(params.login)
+        getUserRepos(params.login)
+        //eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const {
@@ -166,9 +169,12 @@ function User() {
                       {public_gists}
                   </div>
                 </div>
-
+                
               </div>
+              <RepoList repos={repos} />
+      
     </div>
+    
     </>
   
 }
