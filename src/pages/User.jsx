@@ -91,7 +91,7 @@ function User() {
                           Website
                         </div>
                         <div className='text-lg stat-value'>
-                          <a href={`https://${blog}`} target='_blank' rel='norefferer'>
+                          <a href={`https://${blog}`} target='_blank' rel='noreferrer noopener'>
                           {blog}
                           </a>
                          
@@ -105,7 +105,7 @@ function User() {
                           Twitter
                         </div>
                         <div className='text-lg stat-value'>
-                          <a href={`https://twitter.com/${twitter_username}`} target='_blank' rel='norefferer'>
+                          <a href={`https://twitter.com/${twitter_username}`} target='_blank' rel='noreferrer noopener'>
                           {twitter_username}
                           </a>
                          
