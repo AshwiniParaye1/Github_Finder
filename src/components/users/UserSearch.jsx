@@ -9,7 +9,7 @@ function UserSearch() {
 
     const [text, setText] = useState('')
 
-    const {users, dispath, clearUsers} = useContext(GithubContext)
+    const {users, dispatch, clearUsers} = useContext(GithubContext)
 
     const {setAlert} = useContext(AlertContext)
 
@@ -21,9 +21,9 @@ function UserSearch() {
         if (text === '') {
             setAlert('Please enter something', 'error')
         } else {
-            dispath({ type: 'SET_LOADING' })
+            dispatch({ type: 'SET_LOADING' })
             const users = await searchUsers(text)
-            dispath( {type: 'GET_USERS', 
+            dispatch( {type: 'GET_USERS', 
             payload: users} )
 
             setText('')
