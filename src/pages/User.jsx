@@ -1,24 +1,21 @@
 import React from 'react';
 import { useEffect, useContext } from 'react';
-import GithubContext from '../context/github/GithubContext';
+import GithunContext from '../context/github/GithubContext';
 import { useParams } from 'react-router-dom';
-import { FaCodepen, FaStore, FaUserFriends, FaUsers } from 'react-icons/fa';
+import { FaBlogger, FaCodepen, FaStore, FaUserFriends, FaUsers } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import Spinner from '../components/layouts/Spinner';
-import RepoList from '../components/repos/RepoList'
-
 
 
 function User() {
 
-    const {getUser, user, loading, getUserRepos, repos} = useContext(GithubContext)
+    const {getUser, user, loading, getUserRepos, repos} = useContext(GithunContext)
 
     const params = useParams()
 
     useEffect(() => {
         getUser(params.login)
-        getUserRepos(params.login)
-        //eslint-disable-next-line react-hooks/exhaustive-deps
+        // getUserRepos(params.login)
     }, [])
 
     const {
@@ -91,7 +88,7 @@ function User() {
                           Website
                         </div>
                         <div className='text-lg stat-value'>
-                          <a href={`https://${blog}`} target='_blank' rel='noreferrer noopener'>
+                          <a href={`https://${blog}`} target='_blank' rel='norefferer'>
                           {blog}
                           </a>
                          
@@ -105,7 +102,7 @@ function User() {
                           Twitter
                         </div>
                         <div className='text-lg stat-value'>
-                          <a href={`https://twitter.com/${twitter_username}`} target='_blank' rel='noreferrer noopener'>
+                          <a href={`https://twitter.com/${twitter_username}`} target='_blank' rel='norefferer'>
                           {twitter_username}
                           </a>
                          
@@ -169,12 +166,9 @@ function User() {
                       {public_gists}
                   </div>
                 </div>
-                
+
               </div>
-              <RepoList repos={repos} />
-      
     </div>
-    
     </>
   
 }
