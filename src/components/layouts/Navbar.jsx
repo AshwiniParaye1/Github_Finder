@@ -37,7 +37,7 @@ function Navbar({title}) {
 }
 
 Navbar.defaultProps = {
-    title: "Repository Hunter",  //setting title
+    title: "Repository Finder",  //setting title
 }
 
 Navbar.propTypes = {
